@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decorate & Download</title>
+
+  <link rel="icon" href="Assets/fish-photobooth/favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="StyleSheets/final.css" />
+</head>
+<body>
+  <div class="logo">
+    <img src="Assets/fish-photobooth/logo-new.png" alt="Logo">
+  </div>
+
+  <div class="panel">
+    <div class="controls-col">
+      <h2>Layout</h2>
+      <select id="layoutSelect">
+        <option value="plain">Plain</option>
+        <option value="pinkSides">Pink Sides</option>
+        <option value="film">Film (black)</option>
+        <option value="cuteGradient">Cute Gradient</option>
+      </select>
+
+      <h2 style="margin-top:18px;">Stickers</h2>
+      <div class="sticker-buttons">
+        <button class="sticker-btn" data-sticker="mustache">Mustache</button>
+        <button class="sticker-btn" data-sticker="glassesRound">Round Glasses</button>
+        <button class="sticker-btn" data-sticker="glassesRect">Square Glasses</button>
+        <button class="sticker-btn" data-sticker="glassesHeart">Heart Glasses</button>
+      </div>
+
+      <button id="reset" class="util-btn">Reset Stickers</button>
+    </div>
+
+    <div class="canvas-col">
+      <canvas id="finalCanvas" width="1176" height="1470"></canvas>
+      <div class="actions">
+        <button id="downloadBtn" class="primary">Download</button>
+        <button id="homeBtn">Home</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="Javascripts/final.js"></script>
+</body>
+</html>

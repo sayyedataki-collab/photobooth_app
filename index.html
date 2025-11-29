@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VibeBooth</title>
+
+  <!-- Retro-modern fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="StyleSheets/home.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">VibeBooth</div>
+    <nav class="nav">
+      <a href="#" class="nav-link is-active">Home</a>
+      
+    </nav>
+  </header>
+
+  <main class="hero">
+    <!-- rails wrapper (photostrips) -->
+    <div class="rails" aria-hidden="true">
+      <!-- Left FILM strip -->
+      <svg class="rail rail-left" viewBox="0 0 200 720">
+        <rect x="0" y="0" width="200" height="720" rx="14" fill="#121212"/>
+        <g fill="#EAEAEA">
+          <rect x="10" y="40" width="20" height="40" rx="4"/>
+          <rect x="10" y="120" width="20" height="40" rx="4"/>
+          <rect x="10" y="200" width="20" height="40" rx="4"/>
+          <rect x="10" y="280" width="20" height="40" rx="4"/>
+          <rect x="10" y="360" width="20" height="40" rx="4"/>
+          <rect x="10" y="440" width="20" height="40" rx="4"/>
+          <rect x="10" y="520" width="20" height="40" rx="4"/>
+          <rect x="10" y="600" width="20" height="40" rx="4"/>
+          <rect x="170" y="40" width="20" height="40" rx="4"/>
+          <rect x="170" y="120" width="20" height="40" rx="4"/>
+          <rect x="170" y="200" width="20" height="40" rx="4"/>
+          <rect x="170" y="280" width="20" height="40" rx="4"/>
+          <rect x="170" y="360" width="20" height="40" rx="4"/>
+          <rect x="170" y="440" width="20" height="40" rx="4"/>
+          <rect x="170" y="520" width="20" height="40" rx="4"/>
+          <rect x="170" y="600" width="20" height="40" rx="4"/>
+        </g>
+        <defs>
+          <linearGradient id="ph" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#F6F9FF"/>
+            <stop offset="1" stop-color="#EADFFF"/>
+          </linearGradient>
+        </defs>
+        <g>
+          <rect x="38" y="60"  width="124" height="170" rx="10" fill="#222"/>
+          <rect x="44" y="66"  width="112" height="158" rx="8" fill="url(#ph)"/>
+          <rect x="38" y="275" width="124" height="170" rx="10" fill="#222"/>
+          <rect x="44" y="281" width="112" height="158" rx="8" fill="url(#ph)"/>
+          <rect x="38" y="490" width="124" height="170" rx="10" fill="#222"/>
+          <rect x="44" y="496" width="112" height="158" rx="8" fill="url(#ph)"/>
+        </g>
+      </svg>
+
+      <!-- Right WHITE strip -->
+      <svg class="rail rail-right" viewBox="0 0 200 720">
+        <rect x="0" y="0" width="200" height="720" rx="16" fill="#FFFFFF"/>
+        <rect x="6" y="6" width="188" height="708" rx="14" fill="none" stroke="#E8E8E8" stroke-width="2"/>
+        <defs>
+          <linearGradient id="ph2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#FFF2F9"/>
+            <stop offset="1" stop-color="#E9F4FF"/>
+          </linearGradient>
+        </defs>
+        <g>
+          <rect x="28" y="54"  width="144" height="180" rx="12" fill="#F9F9F9" stroke="#EAEAEA"/>
+          <rect x="36" y="62"  width="128" height="164" rx="10" fill="url(#ph2)"/>
+          <rect x="28" y="270" width="144" height="180" rx="12" fill="#F9F9F9" stroke="#EAEAEA"/>
+          <rect x="36" y="278" width="128" height="164" rx="10" fill="url(#ph2)"/>
+          <rect x="28" y="486" width="144" height="180" rx="12" fill="#F9F9F9" stroke="#EAEAEA"/>
+          <rect x="36" y="494" width="128" height="164" rx="10" fill="url(#ph2)"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="hero-card">
+      <!-- Bunny inside the card, top-right -->
+      <figure class="bunny-pin">
+        <img src="images/bunny-frame.jpg" alt="Photobooth bunny holding frame"/>
+      </figure>
+
+      
+      <h1 class="title">photobooth</h1>
+      <p class="subtitle">Snap your shot, add your touch, download the vibe.</p>
+
+      <div class="cta-row">
+        <button id="startBtn" class="btn-primary" onclick="location.href='camera.html'">Take a Snap</button>
+
+      </div>
+
+      
+
+    <!-- Long animated tagline -->
+      <p id="tagline" class="tagline" data-text="A cozy little corner to capture your mood, play with stickers, and save a strip you’ll actually want to keep."></p>
+
+</div>
+    
+
+    <!-- background decor -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="grain"></div>
+  </main>
+
+  <footer class="site-footer">
+    <small>made by me • 2025</small>
+  </footer>
+
+  <script src="Javascripts/home.js"></script>
+</body>
+</html>

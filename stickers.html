@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VibeBooth • Stickers</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="StyleSheets/stickers.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand" onclick="location.href='index.html'">VibeBooth</div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="camera.html" class="nav-link">Camera</a>
+      <a href="#" class="nav-link is-active">Stickers</a>
+    </nav>
+  </header>
+
+  <main class="stickers">
+    <!-- Left: canvas card -->
+    <section class="preview-card">
+      <div class="toolbar">
+        <button id="backBtn" class="btn ghost">← Back</button>
+        <div class="spacer"></div>
+        <button id="undoBtn" class="btn ghost" disabled>Undo</button>
+        <button id="redoBtn" class="btn ghost" disabled>Redo</button>
+        <button id="clearBtn" class="btn ghost">Clear</button>
+        <button id="downloadBtn" class="btn primary">Download</button>
+      </div>
+
+      <!-- Canvas wrapper keeps aspect and makes it responsive -->
+      <div class="canvas-wrap">
+        <canvas id="finalCanvas" width="950" height="1470" aria-label="Decorated photo"></canvas>
+      </div>
+
+      <div class="hint">Drag stickers onto your strip. Pinch/scroll to resize, rotate with ⌥/Alt + drag.</div>
+    </section>
+
+    <!-- Right: sticker tray -->
+    <aside class="tray">
+      <h2>Stickers</h2>
+
+      <div class="tray-tabs">
+        <button class="tab is-active" data-cat="sparkles">✨ Sparkles</button>
+
+      </div>
+
+      <!-- populated by JS; fallback samples for now -->
+      <div id="stickerGrid" class="grid">
+        <!-- Example tiles (you can swap to your assets) -->
+        <button class="tile" data-sticker="sparkle">✨</button>
+        <button class="tile" data-sticker="heart">💖</button>
+        <button class="tile" data-sticker="star">⭐️</button>
+        <button class="tile" data-sticker="smile">😊</button>
+        <button class="tile" data-sticker="peace">☮️</button>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <small>made by me • 2025</small>
+  </footer>
+
+  <script src="Javascripts/stickers.js"></script>
+</body>
+</html>

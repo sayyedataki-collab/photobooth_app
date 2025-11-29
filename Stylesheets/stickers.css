@@ -1,0 +1,112 @@
+:root{
+  --ink:#1f1f1f; --muted:#5b5b5b; --paper:#fdfcf8;
+  --ring: rgba(0,0,0,.08); --glass: rgba(255,255,255,.70);
+  --shadow: 0 14px 28px rgba(0,0,0,.10);
+  --accent-1:#BDE0FE; --accent-2:#CDB4DB;
+  --bg1:#E24E42;--bg2:#ea80ac; --bg3:hsl(0, 100%, 71%);
+}
+
+*{ box-sizing:border-box; }
+html,body{ margin:0; height:100%; font-family:"Nunito",system-ui,sans-serif; color:var(--ink); }
+
+body{
+  background:linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 45%, var(--bg3) 100%);
+  min-height:100%;
+}
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none;
+  background:repeating-linear-gradient(-25deg, rgba(255,255,255,.25) 0 8px, rgba(255,255,255,.1) 8px 16px);
+  mix-blend-mode:luminosity; opacity:.35;
+}
+
+/* header */
+.site-header{
+  position:sticky; top:16px; z-index:10;
+  display:flex; align-items:center; justify-content:space-between;
+  max-width:1100px; margin:0 auto; padding:12px 18px;
+  background:rgba(255,255,255,.7); backdrop-filter: blur(10px);
+  border:1px solid rgba(0,0,0,.06); border-radius:999px; box-shadow:var(--shadow);
+}
+.brand{ font-weight:800; }
+.nav .nav-link{ color:#505; text-decoration:none; margin:0 10px; padding:6px 12px; border-radius:10px; }
+.nav .is-active,.nav .nav-link:hover{ background:#fff; color:var(--ink); }
+
+/* layout */
+.stickers{
+  max-width:1100px; margin:28px auto 40px; padding:0 18px;
+  display:grid; grid-template-columns: 1fr 360px; gap:24px;
+}
+@media (max-width: 980px){ .stickers{ grid-template-columns:1fr; } }
+
+/* preview card (left) */
+.preview-card{
+  background:var(--paper); border:1px solid var(--ring);
+  border-radius: 28px; box-shadow: var(--shadow);
+  padding:18px; display:flex; flex-direction:column; gap:12px;
+  animation:fadeUp .25s ease-out both;
+}
+
+/* toolbar */
+.toolbar{ display:flex; align-items:center; gap:10px; }
+.toolbar .spacer{ flex:1; }
+.btn{
+  padding:10px 14px; border-radius:999px; font-weight:800; border:1px solid var(--ring);
+  background:#fff; cursor:pointer; transition:transform .06s ease, box-shadow .06s ease, filter .15s ease;
+}
+.btn.ghost{ background:#fff; }
+.btn.primary{
+  color:#1e1e1e;
+  background:linear-gradient(90deg, var(--accent-2), var(--accent-1));
+  border-color:rgba(0,0,0,.08);
+  box-shadow:0 10px 18px rgba(164, 186, 255, .35);
+}
+.btn.primary:hover{ filter:saturate(1.04) brightness(1.02); }
+.btn.primary:active{ transform:translateY(1px); box-shadow:0 8px 16px rgba(164, 186, 255, .30); }
+
+/* canvas area */
+.canvas-wrap{
+  display:grid; place-items:center;
+  background:linear-gradient(180deg,#ffffff,#f8f8f8);
+  border:1px solid var(--ring); border-radius:18px; padding:16px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.04);
+}
+#finalCanvas{
+  width:min(100%, 520px);
+  height:auto;                /* keep aspect ratio */
+  aspect-ratio: 950 / 1470;
+  display:block; background:#eee; border-radius:12px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.05);
+}
+
+.hint{ color:var(--muted); font-size:.9rem; text-align:center; }
+
+/* tray (right) */
+.tray{
+  background:var(--glass); backdrop-filter: blur(10px);
+  border:1px solid var(--ring); border-radius: 24px; padding:18px;
+  box-shadow: var(--shadow);
+}
+.tray h2{ margin:6px 6px 10px; font-family:"Fredoka",system-ui,sans-serif; }
+
+.tray-tabs{ display:flex; gap:8px; margin:8px 4px 12px; }
+.tab{
+  padding:8px 12px; border-radius:999px; border:1px solid var(--ring);
+  background:#fff; cursor:pointer; font-weight:800;
+}
+.tab.is-active{ background:linear-gradient(90deg, var(--accent-2), var(--accent-1)); }
+
+.grid{
+  display:grid; grid-template-columns: repeat(3, 1fr); gap:10px;
+}
+.tile{
+  display:grid; place-items:center; aspect-ratio:1;
+  border-radius:14px; border:1px solid var(--ring); background:#fff; cursor:pointer;
+  font-size:22px; box-shadow:0 6px 16px rgba(0,0,0,.08);
+  transition: transform .08s ease, box-shadow .08s ease;
+}
+.tile:hover{ transform: translateY(-2px); box-shadow:0 10px 22px rgba(0,0,0,.12); }
+
+/* footer */
+.site-footer{ text-align:center; color:#666; margin:22px 0 28px; }
+
+@keyframes fadeUp{ from{ opacity:0; transform:translateY(6px) } to{ opacity:1; transform:translateY(0) } }

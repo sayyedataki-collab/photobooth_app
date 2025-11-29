@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VibeBooth • Decorate</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="StyleSheets/decorate.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">VibeBooth</div>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="camera.html" class="nav-link">Camera</a>
+      <a href="#" class="nav-link is-active">Decorate</a>
+    </nav>
+  </header>
+
+  <main class="decorate">
+    <section class="preview-card">
+      <canvas id="decorCanvas" aria-label="Decorated photo preview"></canvas>
+      <div class="hint">Tip: pick a frame below, then “Next: Stickers”</div>
+      <div class="actions">
+  <button id="backBtn" class="btn ghost">Back</button>
+  <button id="nextBtn" class="btn primary">Next</button>
+</div>
+
+    </section>
+
+    <section class="templates">
+      <h2>Choose your frame ✨</h2>
+      <div id="templateGrid" class="grid">
+        <!-- thumbnails are injected by JS -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>made by me • 2025</small>
+  </footer>
+
+  <script src="Javascripts/decorate.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+:root{
+  --paper:#FDFCF8;
+  --ink:#2B2B2B;
+  --accent-1:#BDE0FE;
+  --accent-2:#CDB4DB;
+}
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, sans-serif;
+  color:var(--ink);
+  background:
+    linear-gradient(180deg, #FFF7EC 0%, #DFF6ED 35%, #CFE7FF 100%);
+}
+
+.logo{ padding:12px 18px; }
+.logo img{ height:40px; cursor:pointer; }
+
+.panel{
+  max-width:1200px; margin:0 auto; padding:10px 18px 28px;
+  display:grid; grid-template-columns: 280px 1fr; gap:20px;
+}
+
+.controls-col{
+  background: rgba(255,255,255,.7);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:18px; padding:16px;
+  backdrop-filter: blur(8px);
+}
+.controls-col h2{ font-size:16px; margin:10px 0; }
+#layoutSelect{
+  width:100%; padding:10px 12px; border-radius:10px; border:1px solid #ddd;
+  background:white; font-size:14px;
+}
+.sticker-buttons{
+  display:grid; grid-template-columns: 1fr; gap:10px; margin-top:8px;
+}
+.sticker-btn, .util-btn{
+  padding:10px 12px; border:none; border-radius:10px; cursor:pointer;
+  background:linear-gradient(90deg, var(--accent-2), var(--accent-1));
+  color:#1e1e1e; font-weight:600;
+}
+.util-btn{ background:#eee; }
+
+.canvas-col{
+  background:var(--paper);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:18px; padding:16px;
+  display:flex; flex-direction:column; align-items:center; gap:12px;
+  box-shadow:0 14px 28px rgba(0,0,0,.08);
+}
+#finalCanvas{
+  width:588px; height:735px; /* half display size for retina crispness */
+  background:#fff; border-radius: 12px; border:1px solid #eee;
+}
+
+.actions{ display:flex; gap:10px; }
+.actions .primary{
+  background:linear-gradient(90deg, var(--accent-2), var(--accent-1));
+  border:none; color:#1e1e1e; font-weight:700; border-radius:999px;
+  padding:12px 18px; cursor:pointer;
+}
+.actions button{ padding:12px 18px; border-radius:999px; border:1px solid #ddd; background:white; cursor:pointer; }
+
+@media (max-width: 900px){
+  .panel{ grid-template-columns:1fr; }
+  #finalCanvas{ width:90vw; height:auto; }
+}

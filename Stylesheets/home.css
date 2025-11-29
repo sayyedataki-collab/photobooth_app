@@ -1,0 +1,315 @@
+/* ===========================
+   Gender-neutral + retro theme
+   Centered hero + rails
+   Bunny pinned inside hero card (top-right)
+   Photostrips animated
+   Cute rounded fonts + protected space for text
+   =========================== */
+
+:root{
+  --cream:#ea76aa; --mint:#DFF6ED; --sky:#CFE7FF;
+  --lav:#D8C8FF;  --apric:#FFD6A5;
+  --ink:#1F1F1F;  --paper:#FDFCF8;
+  --accent-1:#BDE0FE; --accent-2:#CDB4DB;
+  --shadow:0 14px 28px rgba(0,0,0,.10);
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; margin:0; }
+
+body{
+  color:var(--ink);
+  font-family:"Nunito", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background:linear-gradient(180deg, var(--cream) 0%, var(--mint) 40%, var(--sky) 100%);
+  position:relative; overflow-x:hidden;
+}
+
+/* gentle stripes */
+body::before{
+  content:""; position:fixed; inset:0;
+  background:repeating-linear-gradient(-25deg, rgba(255,255,255,.25) 0 8px, rgba(255,255,255,.1) 8px 16px);
+  mix-blend-mode:luminosity; opacity:.35; pointer-events:none;
+}
+
+/* header */
+.site-header{
+  position:relative; z-index:10;
+  max-width:1100px; margin:20px auto 0; padding:12px 20px;
+  display:flex; align-items:center; justify-content:space-between;
+  background:rgba(255,255,255,.7);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:999px; box-shadow:var(--shadow);
+}
+.brand{ font-family:"Space Grotesk",system-ui,sans-serif; font-weight:700; letter-spacing:.6px; }
+.nav{ display:flex; gap:14px; }
+.nav-link{ text-decoration:none; color:#505; padding:8px 12px; border-radius:10px; }
+.nav-link.is-active,.nav-link:hover{ background:#fff; color:var(--ink); }
+
+/* hero centered vertically */
+.hero{
+  position:relative; max-width:1100px; margin:0 auto;
+  padding:24px 20px 40px;
+  min-height:calc(100vh - 220px);
+  display:grid; align-items:center;
+}
+
+/* rails */
+.rails{ position:absolute; inset:0; z-index:1; pointer-events:none; }
+.rail{
+  position:absolute; top:58%;
+  width:160px; transform-origin:center;
+  filter:drop-shadow(0 10px 18px rgba(0,0,0,.18)); opacity:.95;
+}
+
+/* Animated photostrips */
+.rail-left {
+  left:-34px;
+  animation: railFloatLeft 3s ease-in-out infinite;
+}
+.rail-right{
+  right:-34px;
+  animation: railFloatRight 3s ease-in-out infinite;
+}
+
+/* Keyframes keep the base placement and add subtle motion */
+@keyframes railFloatLeft{
+  0%   { transform: translateY(-50%) rotate(-4deg) translateX(0) }
+  25%  { transform: translateY(calc(-50% - 6px)) rotate(-5deg) translateX(-4px) }
+  50%  { transform: translateY(-50%) rotate(-4deg) translateX(0) }
+  75%  { transform: translateY(calc(-50% + 6px)) rotate(-3deg) translateX(4px) }
+  100% { transform: translateY(-50%) rotate(-4deg) translateX(0) }
+}
+@keyframes railFloatRight{
+  0%   { transform: translateY(-50%) rotate(4deg) translateX(0) }
+  25%  { transform: translateY(calc(-50% + 6px)) rotate(5deg) translateX(4px) }
+  50%  { transform: translateY(-50%) rotate(4deg) translateX(0) }
+  75%  { transform: translateY(calc(-50% - 6px)) rotate(3deg) translateX(-4px) }
+  100% { transform: translateY(-50%) rotate(4deg) translateX(0) }
+}
+@media (prefers-reduced-motion: reduce){
+  .rail-left, .rail-right { animation:none; }
+}
+
+/* hero card */
+.hero-card{
+  position:relative; z-index:2;
+  background:var(--paper);
+  border-radius:28px; box-shadow:var(--shadow);
+  /* extra right padding so text never hides under bunny */
+  padding:44px 280px 44px 28px;
+  text-align:center;
+  border:1px solid rgba(0,0,0,.06);
+  animation:fadeUp .35s ease-out both;
+  overflow:hidden;
+}
+.hero-card::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(120% 120% at 50% 0%, rgba(0,0,0,.04) 0%, rgba(0,0,0,.02) 35%, transparent 65%);
+  mix-blend-mode:multiply;
+}
+
+/* bunny pinned inside the card, top-right */
+.bunny-pin{
+  position:absolute; top:40px; right:95px; margin:0;
+  width:260px; padding:10px; border-radius:14px;
+  background:#fff; border:1px solid rgba(0,0,0,.06);
+  box-shadow:0 10px 18px rgba(0,0,0,.12);
+  transform:rotate(2deg);
+  z-index:3;
+}
+.bunny-pin img{ display:block; width:100%; height:auto; border-radius:10px; }
+.bunny-pin::before,
+.bunny-pin::after{
+  content:""; position:absolute; width:60px; height:14px; border-radius:4px;
+  background:linear-gradient(90deg, var(--accent-2), var(--accent-1));
+  opacity:.9; filter:drop-shadow(0 2px 4px rgba(0,0,0,.12));
+}
+.bunny-pin::before{ top:-6px; left:12px; transform:rotate(-10deg); }
+.bunny-pin::after { bottom:-6px; right:12px; transform:rotate(12deg); }
+
+/* texts */
+.badge{
+  display:inline-block; padding:6px 12px; border-radius:999px; font-size:12px;
+  background:linear-gradient(90deg, var(--accent-2), var(--accent-1));
+  color:#3e3e3e; margin:0 0 10px;
+}
+.title{
+  font-family:"Fredoka", system-ui, sans-serif;
+  font-weight:700;
+  font-size:56px; line-height:1.08; margin:6px 0; letter-spacing:.2px;
+}
+.subtitle{ color:#5A5A5A; margin:6px 0 18px; font-weight:600; }
+
+/* button */
+.cta-row{ display:flex; justify-content:center; gap:12px; }
+.btn-primary{
+  padding:14px 28px; border:none; border-radius:999px;
+  background:linear-gradient(90deg, var(--accent-2), var(--accent-1));
+  color:#1e1e1e; font-weight:800; letter-spacing:.3px;
+  box-shadow:0 12px 22px rgba(164, 186, 255, .35);
+  cursor:pointer; transition: transform .06s ease, box-shadow .06s ease, filter .15s ease;
+}
+.btn-primary:hover{ filter:saturate(1.05) brightness(1.02); }
+.btn-primary:active{ transform:translateY(1px); box-shadow:0 8px 16px rgba(164, 186, 255, .30); }
+
+/* animated long tagline */
+.tagline{
+  min-height: 1.6em;
+  font-family:"Nunito",system-ui,sans-serif;
+  font-size: 18px;
+  color: #2f2f2f;
+  font-weight:700;                 /* bolder & cute */
+  letter-spacing: .2px;
+  line-height: 1.45;
+  margin: 18px auto 4px;
+  max-width: 48ch;
+  opacity: 0;                      /* revealed by JS */
+  transition: opacity .25s ease;
+  white-space: pre-wrap;           /* keep line breaks if any */
+}
+.tagline span{
+  opacity: 0;
+  display: inline-block;
+  transform: translateY(2px);
+  transition: opacity .18s ease, transform .18s ease;
+}
+@media (prefers-reduced-motion: reduce){
+  .tagline { opacity:1 !important; }
+  .tagline span{ opacity:1 !important; transform:none !important; transition:none !important; }
+}
+
+/* layout chips (if you add back later) */
+.layout-previews{ display:none; }
+
+/* blobs + grain */
+.blob{ position:absolute; border-radius:40% 60% 60% 40% / 50% 40% 60% 50%; filter:blur(18px); opacity:.6; pointer-events:none; animation:float 12s ease-in-out infinite; z-index:0; }
+.blob-1{ width:180px; height:180px; left:6%; top:12%; background:radial-gradient(circle at 30% 30%, var(--lav), transparent 70%); }
+.blob-2{ width:140px; height:140px; right:8%; top:26%; background:radial-gradient(circle at 60% 40%, var(--apric), transparent 70%); animation-duration:14s; }
+.blob-3{ width:120px; height:120px; left:12%; bottom:6%; background:radial-gradient(circle at 40% 60%, var(--mint), transparent 70%); animation-duration:10s; }
+@keyframes float{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-12px) } }
+
+.grain{
+  position:absolute; inset:-20%;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncA type='table' tableValues='0 0 0 0.06 0.12 0.08 0.04 0'/></feComponentTransfer></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity:.25; mix-blend-mode:multiply; animation:grainShift 1.8s steps(4,end) infinite; pointer-events:none; z-index:0;
+}
+@keyframes grainShift{ 0%{ transform:translate(0,0) } 100%{ transform:translate(-2%,1%) } }
+
+/* footer */
+.site-footer{ max-width:1100px; margin:0 auto 28px; padding:0 20px; text-align:center; color:#777; }
+
+/* entrance */
+@keyframes fadeUp{ from{ opacity:0; transform:translateY(8px) scale(.98); } to{ opacity:1; transform:translateY(0) scale(1); } }
+
+/* ===========================
+   Responsive tweaks
+   =========================== */
+
+/* Large tablets & small laptops */
+@media (max-width: 1100px){
+  .rail{ width:140px; }
+  .rail-left{ left:-26px; }
+  .rail-right{ right:-26px; }
+
+  .hero-card{
+    padding:40px 240px 32px 24px;
+  }
+
+  .bunny-pin{
+    width:220px;
+    top:32px;
+    right:32px;
+  }
+
+  .title{
+    font-size:50px;
+  }
+}
+
+/* Tablets & big phones (landscape / tall) */
+@media (max-width: 900px){
+  .rails{ display:block; }
+
+  .rail{
+    width:120px;
+    top:54%;
+  }
+  .rail-left{ left:-20px; }
+  .rail-right{ right:-20px; }
+
+  /* keep space for bunny on the right */
+  .hero-card{
+    padding:32px 210px 28px 20px;   /* top | right | bottom | left */
+  }
+
+  /* bunny stays on the side, just a bit smaller */
+  .bunny-pin{
+    width:190px;
+    top:30px;
+    right:18px;
+    transform:rotate(2deg);
+  }
+
+  .title{
+    font-size:46px;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px){
+  .rail{
+    width:90px;
+    top:52%;
+    opacity:.9;
+  }
+  .rail-left{ left:-14px; }
+  .rail-right{ right:-14px; }
+
+  /* still reserve a right column for the bunny */
+  .hero-card{
+    padding:20px 150px 20px 16px;
+  }
+
+  /* bunny: right side, smaller, not on top of text */
+  .bunny-pin{
+    width:140px;
+    top:26px;
+    right:10px;
+    transform:rotate(1.5deg);
+  }
+
+  .title{
+    font-size:34px;
+    line-height:1.1;
+  }
+  .subtitle,
+  .tagline{
+    font-size:12px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px){
+  .rail{
+    width:70px;
+    top:50%;
+    opacity:.8;
+  }
+  .rail-left{ left:-10px; }
+  .rail-right{ right:-10px; }
+
+  .hero-card{
+    padding:18px 130px 18px 14px;
+  }
+
+  .bunny-pin{
+    width:120px;
+    top:24px;
+    right:8px;
+  }
+
+  .title{
+    font-size:30px;
+  }
+}
